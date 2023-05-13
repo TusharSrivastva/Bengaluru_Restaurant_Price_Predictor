@@ -10,6 +10,7 @@ from dataclasses import dataclass
 
 @dataclass
 class DataIngestionConfig:
+    # Initializing paths for datasets
     train_data_path = os.path.join('artifacts', 'train.csv')
     test_data_path = os.path.join('artifacts', 'test.csv')
     raw_data_path = os.path.join('artifacts', 'data.csv')
