@@ -55,5 +55,5 @@ class DataIngestion:
 
 if __name__=="__main__":
     obj = DataIngestion()
-    obj.intiate_data_ingestion()
+    train_data_path, test_data_path = obj.intiate_data_ingestion()
 
