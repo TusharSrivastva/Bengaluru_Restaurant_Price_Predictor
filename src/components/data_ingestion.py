@@ -8,7 +8,9 @@ from dataclasses import dataclass
 
 from src.exception import CustomException
 from src.logger import logging
+
 from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
 
 from typing import Type, Tuple
 
@@ -87,11 +89,3 @@ class DataIngestion:
        
         except Exception as e:
             raise CustomException(e, sys)
-
-if __name__=="__main__":
-    # Data Ingestion
-    train_data_path, test_data_path = DataIngestion().intiate_data_ingestion()
-
-    # Data Transformation
-    X_train, y_train, X_test, y_test, preprocessor_path = DataTransformation().initiate_data_transformation(train_data_path, test_data_path)
-
