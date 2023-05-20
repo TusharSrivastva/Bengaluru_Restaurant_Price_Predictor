@@ -11,8 +11,7 @@ def get_requirements(file: str)->List[str]:
     with open(file, mode='r') as f:
         requirements = f.readlines()
     
-    requirements = [i.replace('\n','') for i in requirements]   # Remove '\n' from the end of each line
-
+    requirements = [i.replace('\n','') for i in requirements]
     if HYPHEN_E in requirements:
         requirements.remove(HYPHEN_E)
 
