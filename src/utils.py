@@ -9,7 +9,7 @@ from src.exception import CustomException
 from sklearn.metrics import r2_score
 
 # Function for pickling objects
-def save_object(file_path, obj) -> None:
+def save_object(file_path: str, obj) -> None:
     """
     This function takes file path and object as input and saves the object
     at specified path.
@@ -35,7 +35,7 @@ def save_object(file_path, obj) -> None:
 
 
 # Function for loading pickled objects
-def load_object(file_path) -> pickle:
+def load_object(file_path: str) -> pickle:
     """
     This function is used to load pickled objects.
 
