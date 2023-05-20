@@ -38,7 +38,7 @@ class Transformation_functions:
 
 
             # Splitting clustered values in rest_type into multiple rows
-            df['rest_type'] = df['rest_type'].apply(lambda x: str(x).split(','))
+            df['rest_type'] = df['rest_type'].apply(lambda x: str(x).split(', '))
             df = df.explode('rest_type')
 
             logging.info("DataFrame exploded")
