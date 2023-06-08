@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
 from src.pipelines.predict_pipeline import CustomData, PredictPipeline
 from sklearn import set_config
+import pandas as pd
 
 application = Flask(__name__)
 
 app = application
+
+prediction: int
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -15,7 +18,7 @@ def index():
         global prediction
 
         # Initializing data
-        data = CustomData(
+        data: object = CustomData(
             book = request.form.get('book'),
             delivery = request.form.get('delivery'),
             rate = request.form.get('rate'),
@@ -28,7 +31,7 @@ def index():
         # Setting sklearn global configurations
         set_config(transform_output="pandas")
 
-        pred_df = data.get_data_as_dataframe()  
+        pred_df: pd.DataFrame = data.get_data_as_dataframe()  
 
         prediction = PredictPipeline().predict(pred_df)
 
@@ -39,4 +42,4 @@ def results():
     return render_template('result.html', prediction = prediction)
 
 if __name__=="__main__":
-    app.run(debug=True, port=5000)
+    app.run()
