@@ -1,4 +1,5 @@
 import sys
+import os
 import pandas as pd
 
 from src.exception import CustomException
@@ -33,8 +34,8 @@ class PredictPipeline:
         """
         try:
             # Model and Prepocessor path
-            model_path = 'artifacts\model.pkl'
-            preprocessor_path = 'artifacts\preprocessor.pkl'
+            model_path = os.path.join('artifacts', 'model.pkl')
+            preprocessor_path = os.path.join('artifacts', 'preprocessor.pkl')
 
             # Loading model and prepocessor
             model = load_object(file_path = model_path)
