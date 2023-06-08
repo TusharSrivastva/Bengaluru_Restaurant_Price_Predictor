@@ -2,7 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for
 from src.pipelines.predict_pipeline import CustomData, PredictPipeline
 from sklearn import set_config
 
-app = Flask(__name__)
+application = Flask(__name__)
+
+app = application
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
